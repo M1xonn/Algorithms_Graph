@@ -50,15 +50,18 @@ class Graph:
                 path_len += edge[2]
         return path, path_len
 
-    def dfs(self, curr, visited=None):
-        if not visited:
-            visited = fill(False, len(self.vertices))
+    def dfs(self, curr):
+        visited = fill(False, len(self.vertices))
+        stack = ArrayList(curr)
         visited[curr] = True
-        print(self.vertices[curr])
-
-        for i in range(len(self.vertices)):
-            if self.matrix[curr][i] != 0 and not visited[i]:
-                self.dfs(i, visited)
+        while stack:
+            vis = stack[0]
+            stack.pop()
+            print(self.vertices[vis])
+            for i in range(len(self.vertices)):
+                if self.matrix[vis][i] != 0 and not visited[i]:
+                    stack.push(i)
+                    visited[i] = True
 
     def bfs(self, curr):
         visited = fill(False, len(self.vertices))
