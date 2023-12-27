@@ -8,10 +8,10 @@ class Graph:
     def __init__(self, matrix=None, vertices=None):
         self.matrix = matrix
         self.vertices = vertices
-        self.list = self.fromDjsToList()
-        self.incident = self.fromDgsToIncident()
+        self.list = self.fromAdjToList()
+        self.incident = self.fromAdjToIncident()
 
-    def fromDjsToList(self):
+    def fromAdjToList(self):
         edges = ArrayList()
         for i in range(len(self.matrix)):
             for j in range(len(self.matrix[i])):
@@ -20,7 +20,7 @@ class Graph:
                     edges.push(edge)
         return edges
 
-    def fromDgsToIncident(self):
+    def fromAdjToIncident(self):
         incid = ArrayList(fill(0, len(self.vertices)))
         edge = 0
         for i in range(len(self.matrix)):

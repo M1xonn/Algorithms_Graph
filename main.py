@@ -9,15 +9,15 @@ def parseHeader(header):
 
 
 def parseData(data):
-    pretty_matrix = ArrayList()
-    shitty_matrix = data.split("\n")
-    for i in range(len(shitty_matrix)):
-        pretty_matrix.push(shitty_matrix[i].split(" "))
+    matrix = ArrayList()
+    matrix_data = data.split("\n")
+    for i in range(len(matrix_data)):
+        matrix.push(matrix_data[i].split(" "))
 
-    for i in range(len(pretty_matrix)):
-        for j in range(len(pretty_matrix[i])):
-            pretty_matrix[i][j] = int(pretty_matrix[i][j])
-    return pretty_matrix
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            matrix[i][j] = int(matrix[i][j])
+    return matrix
 
 
 if __name__ == '__main__':
